@@ -4,10 +4,11 @@ import AddTask from "./AddTask";
 import TaskList from "./TaskList";
 
 class App extends Component {
+  counter = 9;
   state = {
     tasks: [
       {
-        id: 1,
+        id: 0,
         text: "Learn React",
         date: "2024-05-08",
         important: true,
@@ -15,7 +16,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 2,
+        id: 1,
         text: "Learn Redux",
         date: "2024-05-08",
         important: false,
@@ -23,7 +24,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 3,
+        id: 2,
         text: "Learn Typescript",
         date: "2024-05-08",
         important: false,
@@ -31,7 +32,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 4,
+        id: 3,
         text: "Learn Javascript",
         date: "2024-05-08",
         important: false,
@@ -39,7 +40,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 5,
+        id: 4,
         text: "Learn NextJS",
         date: "2024-05-08",
         important: false,
@@ -47,7 +48,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 6,
+        id: 5,
         text: "Learn Something",
         date: "2024-05-08",
         important: false,
@@ -55,7 +56,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 7,
+        id: 6,
         text: "Clean car",
         date: "2024-05-08",
         important: false,
@@ -63,7 +64,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 8,
+        id: 7,
         text: "Go to Reda",
         date: "2024-05-08",
         important: false,
@@ -71,7 +72,7 @@ class App extends Component {
         finishDate: null,
       },
       {
-        id: 9,
+        id: 8,
         text: "Take Agata to USA",
         date: "2024-05-08",
         important: false,
@@ -95,7 +96,7 @@ class App extends Component {
   };
 
   changeTaskStatus = (id) => {
-    console.log("change w APP o id" + id);
+    // console.log("change w APP o id" + id);
     const tasks = [...this.state.tasks];
     tasks.forEach((task) => {
       if (task.id === id) {
@@ -108,11 +109,30 @@ class App extends Component {
     });
   };
 
+  addTask = (text, date, important) => {
+    const task = {
+      id: this.counter,
+      text: text,
+      date: date,
+      important: important,
+      active: true,
+      finishDate: null,
+    };
+    this.counter++;
+
+    this.setState((prevState) => {
+      return {
+        tasks: [...prevState.tasks, task],
+      };
+    });
+    return true;
+  };
+
   render() {
     return (
       <div className="App">
         <h1>TO DO App</h1>
-        <AddTask />
+        <AddTask add={this.addTask} />
         <TaskList
           tasks={this.state.tasks}
           delete={this.deleteTask}

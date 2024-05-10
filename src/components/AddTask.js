@@ -27,7 +27,22 @@ class AddTask extends Component {
     });
   };
 
-  handleClick = () => {};
+  handleClick = () => {
+    const { text, checked, date } = this.state;
+
+    if (text.length > 2) {
+      const add = this.props.add(text, date, checked);
+      if (add) {
+        this.setState({
+          text: "",
+          checked: false,
+          date: this.minDate,
+        });
+      }
+    } else {
+      alert("Za krótka nazwa!");
+    }
+  };
 
   render() {
     let maxDate = this.minDate.slice(0, 4) * 1 + 1;
@@ -54,11 +69,11 @@ class AddTask extends Component {
           type="date"
           value={this.state.date}
           min={this.minDate}
-          max={this.maxDate}
+          max={maxDate}
           onChange={this.handleDate}
         />
         <br />
-        <button onChange={this.handleClick}>Dodaj</button>
+        <button onClick={this.handleClick}>Dodaj</button>
         <hr />
       </div>
     );

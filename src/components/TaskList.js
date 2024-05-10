@@ -46,7 +46,6 @@ const TaskList = (props) => {
         )}
         {doneTasks.slice(0, 5)}
       </div>
-      <hr />
     </>
   );
 };

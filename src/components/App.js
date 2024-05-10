@@ -72,7 +72,7 @@ class App extends Component {
       },
       {
         id: 9,
-        text: "Love Agata",
+        text: "Take Agata to USA",
         date: "2024-05-08",
         important: false,
         active: false,

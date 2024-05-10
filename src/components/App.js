@@ -35,7 +35,7 @@ class App extends Component {
         text: "Learn Javascript",
         date: "2024-05-08",
         important: false,
-        active: false,
+        active: true,
         finishDate: null,
       },
       {
@@ -75,7 +75,7 @@ class App extends Component {
         text: "Take Agata to USA",
         date: "2024-05-08",
         important: false,
-        active: false,
+        active: true,
         finishDate: null,
       },
     ],

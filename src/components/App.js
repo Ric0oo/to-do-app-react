@@ -65,7 +65,7 @@ class App extends Component {
       },
       {
         id: 7,
-        text: "Go to Reda",
+        text: "Read a book",
         date: "2024-05-08",
         important: false,
         active: true,
@@ -73,7 +73,7 @@ class App extends Component {
       },
       {
         id: 8,
-        text: "Take Agata to USA",
+        text: "Go for a trip to USA",
         date: "2024-05-08",
         important: false,
         active: true,
